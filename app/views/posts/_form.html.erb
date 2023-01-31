@@ -42,10 +42,6 @@
   </script>
 
 
-<%= form_with(model: [@post, @post.comments.build], local: true) do |form| %>
-  <%= form.text_area :body %>
-  <%= form.submit "Add Comment" %>
-<% end %>
 
 
   <div>
