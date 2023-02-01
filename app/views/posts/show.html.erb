@@ -1,24 +1,25 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @post %>
+<h1><%= @post.comment %></h1>
 
 <div>
   <%= link_to "Edit this post", edit_post_path(@post) %> |
   <%= link_to "Back to posts", posts_path %>
-
   <%= button_to "Destroy this post", @post, method: :delete %>
 </div>
 
-<h1><%= @post.comment %></h1>
-
 <h2>Comments</h2>
 <% @post.comments.each do |comment| %>
-  <p><%= comment.comment %></p>
+  <p>
+    <%= comment.content %>
+  </p>
 <% end %>
 
 <h3>Add a Comment</h3>
 <%= form_for [@post, @post.comments.build] do |f| %>
   <p>
-    <%= f.label :body %><br>
-    <%= f.text_field :body %>
+    <%= f.label :content %><br>
+    <%= f.text_field :content %>
   </p>
+  <%= f.submit %>
+<% end %>
