@@ -1,6 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<h1><%= @post.comment %></h1>
+
+<p>
+<strong> Comments: </strong>
+<%= render partial: 'comments/comment', collection: @post.comments %>
+<%= render partial: 'comments/form', locals: {post: @post} %>
+</p>
 
 <div>
   <%= link_to "Edit this post", edit_post_path(@post) %> |
@@ -8,18 +13,5 @@
   <%= button_to "Destroy this post", @post, method: :delete %>
 </div>
 
-<h2>Comments</h2>
-<% @post.comments.each do |comment| %>
-  <p>
-    <%= comment.content %>
-  </p>
-<% end %>
 
-<h3>Add a Comment</h3>
-<%= form_for [@post, @post.comments.build] do |f| %>
-  <p>
-    <%= f.label :content %><br>
-    <%= f.text_field :content %>
-  </p>
-  <%= f.submit %>
-<% end %>
+

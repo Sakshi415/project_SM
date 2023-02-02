@@ -19,6 +19,24 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    # GET /users/1/edit
+def edit
+  if params[:post_id].present?
+    @post = Post.find_by(id: params[:post_id])
+    if @post.present?
+      @comment = @post.comments.find_by(id: params[:id])
+      if @comment.blank?
+        redirect_to posts_path, alert: "Comment not found"
+      end
+    else
+      redirect_to posts_path, alert: "Post not found"
+    end
+  else
+    redirect_to posts_path, alert: "Post ID is missing"
+  end
+end
+
+
   end
 
   # POST /users or /users.json
