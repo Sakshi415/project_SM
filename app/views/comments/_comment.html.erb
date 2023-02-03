@@ -11,10 +11,12 @@
 </small>
 </p>
 
+<% if comment.user %>
   <p>
     <strong>User:</strong>
-    <%= comment.user_id %>
+    <%= comment.user.name %>
   </p>
+  <% end %>
 
   <p>
     <strong>Post:</strong>

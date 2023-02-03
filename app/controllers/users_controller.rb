@@ -8,7 +8,8 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
-   # @users = User.find(params[:id])
+    users = User.find(params[:id])
+   @username = users.name
 
   end
 

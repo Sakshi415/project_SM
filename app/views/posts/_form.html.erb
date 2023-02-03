@@ -27,24 +27,6 @@
   <%# </div> %>
 
   <div>
-    <%= form.label "User", style: "display: block" %>
-    <select onchange="update_user()" id="user">
-      <% User.all.each do |user| %>
-        <option value=<%= user.id %>><%= user.name %></option>
-      <% end %>
-    </select>
-  </div>
-
-  <script type="javascript">
-    function update_user(){
-      document.getElementById("post_user_id").value = document.getElementById("user").value
-    }
-  </script>
-
-
-
-
-  <div>
     <%= form.submit %>
   </div>
 <% end %>
