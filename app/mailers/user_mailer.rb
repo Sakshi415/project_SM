@@ -6,4 +6,11 @@ class UserMailer < ApplicationMailer
 
 
     end
+
+    def report(filepath, filename)
+        emails= ["test@gmail.com"]
+        attachments[filename] = File.read(filepath)
+        mail(to: emails,subject: "Posts Report")
+      
+    end
 end

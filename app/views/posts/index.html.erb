@@ -12,3 +12,6 @@
 </div>
 
 <%= link_to "New post", new_post_path %>
+<%= link_to "Download as .xlsx", export_to_excel_posts_path(format: :xlsx), class: "btn btn-primary" %>
+
+

@@ -1,5 +1,7 @@
+
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
+  
 
   # GET /posts or /posts.json
   def index
@@ -22,6 +24,18 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
   end
+
+
+
+  def export_to_excel
+    @posts = Post.all
+    respond_to do |format| 
+       format.xlsx {render xlsx: 'export_to_excel',filename: "posts.xlsx", disposition: 'inline',xlsx_content: "Thank you"}
+    end
+  end
+
+
+
 
   # POST /posts or /posts.json
   def create

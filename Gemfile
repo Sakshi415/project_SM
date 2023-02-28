@@ -11,6 +11,15 @@ gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
 gem "pg"
+#"Use axlsx to generate excel spreadsheet"
+
+gem "axlsx_rails"
+gem 'rubyzip'
+gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
+gem 'axlsx_rails'
+gem 'rubyXL'
+gem 'byebug'
+
 #user
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
